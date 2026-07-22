@@ -32,7 +32,7 @@ export default function Navbar() {
           ))}
           <button
             type="button"
-            className="lang-toggle"
+            className={language === "ja" ? "lang-toggle active" : "lang-toggle"}
             onClick={() => setLanguage(language === "ja" ? "en" : "ja")}
           >
             {language === "ja" ? "EN" : "JP"}

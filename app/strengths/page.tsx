@@ -21,7 +21,7 @@ export default function StrengthsPage() {
         />
         <div className="grid grid-3">
           {strengths.map((strength) => (
-            <StrengthCard key={strength.title} strength={strength} />
+            <StrengthCard key={strength.titleEn} strength={strength} />
           ))}
         </div>
       </div>

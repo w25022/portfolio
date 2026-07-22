@@ -1,10 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Hero() {
-  const { language } = useLanguage();
+  const { language, setLanguage } = useLanguage();
 
   return (
     <section className="hero-card">
@@ -43,7 +44,13 @@ export default function Hero() {
         </div>
       </div>
       <div className="hero-visual">
-        <img src="/images/my photo with shark.jpeg" alt="Linn Sat Aung" />
+        <Image
+          src="/images/my photo with shark.jpeg"
+          alt="Linn Sat Aung"
+          width={420}
+          height={420}
+          className="hero-image"
+        />
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Hobby } from "@/types";
 
 type HobbyCardProps = {
@@ -12,7 +13,13 @@ export default function HobbyCard({ hobby, language }: HobbyCardProps) {
 
   return (
     <article className="card hobby-card">
-      <img src={hobby.image} alt={title} />
+      <Image
+        src={hobby.image}
+        alt={title}
+        width={320}
+        height={240}
+        className="hobby-image"
+      />
       <div className="card-body">
         <h3>{title}</h3>
         <p>{description}</p>

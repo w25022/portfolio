@@ -1,6 +1,8 @@
 export interface Project {
-  title: string;
-  description: string;
+  titleEn: string;
+  titleJa: string;
+  descriptionEn: string;
+  descriptionJa: string;
   image: string;
   link: string;
   tags: string[];
@@ -13,8 +15,10 @@ export interface Skill {
 }
 
 export interface Strength {
-  title: string;
-  description: string;
+  titleEn: string;
+  titleJa: string;
+  descriptionEn: string;
+  descriptionJa: string;
   icon: string;
 }
 

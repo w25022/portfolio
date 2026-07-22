@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageProvider";
 import type { Project } from "@/types";
@@ -10,13 +11,22 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const { language } = useLanguage();
+  const title = language === "ja" ? project.titleJa : project.titleEn;
+  const description =
+    language === "ja" ? project.descriptionJa : project.descriptionEn;
 
   return (
     <article className="card project-card">
-      <img src={project.image} alt={project.title} />
+      <Image
+        src={project.image}
+        alt={title}
+        width={420}
+        height={250}
+        className="project-image"
+      />
       <div className="card-body">
-        <h3>{project.title}</h3>
-        <p>{project.description}</p>
+        <h3>{title}</h3>
+        <p>{description}</p>
         <div className="tag-row">
           {project.tags.map((tag) => (
             <span key={tag} className="tag">

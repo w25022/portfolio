@@ -1,3 +1,4 @@
+import { useLanguage } from "@/components/LanguageProvider";
 import type { Strength } from "@/types";
 
 type StrengthCardProps = {
@@ -38,18 +39,22 @@ function StrengthIcon({ type }: { type: string }) {
 }
 
 export default function StrengthCard({ strength }: StrengthCardProps) {
+  const { language } = useLanguage();
   const iconClass = strength.icon
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+  const title = language === "ja" ? strength.titleJa : strength.titleEn;
+  const description =
+    language === "ja" ? strength.descriptionJa : strength.descriptionEn;
 
   return (
     <article className="card strength-card">
       <div className={`skill-icon skill-icon-${iconClass}`}>
         <StrengthIcon type={strength.icon} />
       </div>
-      <h3>{strength.title}</h3>
-      <p>{strength.description}</p>
+      <h3>{title}</h3>
+      <p>{description}</p>
     </article>
   );
 }
